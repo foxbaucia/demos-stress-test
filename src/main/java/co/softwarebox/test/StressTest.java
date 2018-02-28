@@ -15,6 +15,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
+/***
+ * Main class for Url tracker Stress Testing
+ * @author martinfox
+ *
+ */
 public class StressTest {
 
 	// Quantity of requests to send
@@ -146,7 +151,6 @@ public class StressTest {
 		final InputStream resourceAsStream = StressTest.class.getResourceAsStream("urls.txt");
         final BufferedReader br = new BufferedReader(new InputStreamReader(resourceAsStream));
 
-		// BufferedReader br = new BufferedReader(new FileReader("src/main/resources/co/softwarebox/test/urls.txt"));
 		try {
 			
 		    String line = br.readLine();
