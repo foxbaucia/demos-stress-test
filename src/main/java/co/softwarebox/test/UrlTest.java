@@ -1,5 +1,7 @@
 package co.softwarebox.test;
 
+import java.util.Base64;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -11,6 +13,7 @@ import org.apache.http.util.EntityUtils;
 public class UrlTest implements Runnable {
 
 	private static final String VISITS_URL = "http://localhost:8081/api/v1/visits/";
+	private static final String USER_PASS = "demos:password";
 
 	private String url;
 	
@@ -51,7 +54,10 @@ public class UrlTest implements Runnable {
 			HttpPost httppost = new HttpPost(VISITS_URL);
 	
 			httppost.setHeader("Content-Type", "application/json");
-	
+
+			byte[] encoding = Base64.getEncoder().encode(USER_PASS.getBytes());
+			httppost.setHeader("Authorization", "Basic " + new String(encoding));
+
 			String json = "{\"url\": \"" + this.url+ "\"}";
 			
 	        HttpEntity entity = new ByteArrayEntity(json.getBytes("UTF-8"));
