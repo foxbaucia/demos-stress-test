@@ -10,6 +10,12 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+/**
+ * This class represents a single test.
+ * 
+ * @author martinfox
+ *
+ */
 public class UrlTest implements Runnable {
 
 	private static final String VISITS_URL = "http://localhost:8081/api/v1/visits/";
@@ -25,6 +31,14 @@ public class UrlTest implements Runnable {
 		
 	}
 	
+	/**
+	 * Construct a new test
+	 * 
+	 * @param scheme
+	 * @param domain
+	 * @param route
+	 * @param expectedResult
+	 */
 	public UrlTest(String scheme, String domain, String route, ExpectedResult expectedResult) {
 		this.domain = domain;
 		this.url = scheme + "://" + domain + "/" + route;
@@ -47,6 +61,9 @@ public class UrlTest implements Runnable {
 		this.domain = domain;
 	}
 
+	/**
+	 * Run a single test.
+	 */
 	public void run() {
 		try {
 			
