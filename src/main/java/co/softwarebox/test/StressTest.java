@@ -19,7 +19,8 @@ public class StressTest {
 
 	// Quantity of requests to send
 	// private final static Long SIZE = 500000L;
-	private final static Long SIZE = 1000000L;
+	//private final static Long SIZE = 1000000L;
+	private final static Long SIZE = 2000L;
 	
 	// Number of requests at the same time. 
 	private final static Integer RAMP = 60;
